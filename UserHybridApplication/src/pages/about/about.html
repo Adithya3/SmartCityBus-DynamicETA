@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+	<ion-title>
+    <p style="color: white; text-align: center;">{{ routeId }}  @  {{ stopName }}</p>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content overflow-scroll = "false">
+<div style="width: 100%;height: 100%">
+<div #map #marker id="map" style="width:100%; height:40%;position:fixed;"></div>
+<h2 style="color: #8E4585; padding-left: 30px">{{ routeId }} Route - {{ stopsPassed.length + stopsAhead.length}} stops</h2>
+<div style="height:55%;overflow: scroll;">
+<ul>
+  <li *ngFor = "let stopPassed of stopsPassed"><span class = 'lineGrey'></span><span class='stopsPassed'> </span>
+    <div style="color:grey;"> {{ stopPassed }} </div>
+  </li>
+  <li *ngFor = "let stopAhead of stopsAhead"><span class = 'lineBlack'></span><span class='stopsAhead'> </span>
+    <div> {{ stopAhead }} </div>
+  </li>
+</ul>
+</div>
+</div>
+</ion-content>

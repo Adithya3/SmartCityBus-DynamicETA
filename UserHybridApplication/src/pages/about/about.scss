@@ -1,0 +1,47 @@
+page-about {
+.toolbar-background {
+  background-color: #8E4585;
+}
+ul {
+  list-style: none;
+}
+li {
+  display: flex;
+  flex-flow: row;
+  min-height: 40px;
+  position: relative;
+}
+span.stopsPassed {
+  text-align: center;
+  width: 1em;
+  height: 1em;
+  background-color: grey;
+  border-radius: 50%;
+  z-index: 1;
+}
+span.stopsAhead {
+  text-align: center;
+  width: 1em;
+  height: 1em;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 1;
+}
+span.lineGrey {
+  position: absolute;
+  height: 100%;
+  border: solid grey 0.1em;
+  top: 0.5em;
+  left: 0.45em;
+}
+span.lineBlack {
+  position: absolute;
+  height: 100%;
+  border: solid black 0.1em;
+  top: 0.5em;
+  left: 0.45em;
+}
+li:last-child span.lineBlack {
+  display: none;
+}
+}

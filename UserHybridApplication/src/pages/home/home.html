@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+    <p style="color:white; text-align:center; float:left;padding-left: 90px">Smart City Bus</p>
+    <img style ="float:right;padding-top: 18px;" src = "img/refresh.jpg" (click) = "refresh()"/>
+    </ion-title>
+  </ion-navbar>
+ </ion-header>
+<ion-content overflow-scroll = "false">
+<div style="width: 100%;height: 100%">
+<div #map #marker id="map" style="width:100%;height:50%;position:fixed;display:block"></div>
+<div style="overflow:scroll;display:block; height:50%;">
+<ion-list overflow-scroll = "true">
+<h2 [hidden] = "error" style="color:#8E4585;"> Error!</h2>
+<p style="color:#8E4585; font-style: italic; font-size: 18px;" [hidden] = "error">Please enable location services to retrieve near by routes!</p>
+<ion-item *ngFor="let item of distinctRoutes" (click) = "navigate(item)">
+<div style="background-color: #FBCEB1">
+<div style="float: left; color:#8E4585">
+<h1>{{item.routeId}}</h1>
+<p>{{item.towards}}</p>
+</div>
+<div style="float: right; color:#8E4585">
+<h1>{{item.eta}}mins</h1>
+<p style="font-size: 20px"> <img src = "img/arrow.png"/>  {{item.at}}</p>
+</div>
+</div>
+</ion-item>
+</ion-list>
+</div>
+</div>
+</ion-content>
