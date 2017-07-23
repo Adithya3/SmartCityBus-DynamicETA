@@ -1,0 +1,39 @@
+<!-- this creates a google map on the page with the given lat/lng from -->
+<!-- the component as the initial center of the map:
+  <leaflet-group *ngFor="let lines of shiftedShapes; let ind = index;">
+    <polyline-element [latlngs]=lines.shapes [Options]="{color:'#000', weight:2}"></polyline-element>
+  </leaflet-group>
+    <leaflet-group *ngFor="let lines of shiftedShapes1; let ind = index;">
+    <polyline-element [latlngs]=lines.shapes [Options]="{color:'#fff', weight:2}"></polyline-element>
+  </leaflet-group>
+
+
+
+
+<leaf-element [lat]="lat" [lon]="lng" [zoom]=12 [maxZoom]=12 [layerControl]=true>
+  <layer-element [slippyLayer]="'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'"></layer-element>
+  <leaflet-group *ngFor="let lines of allShapes; let ind = index;">
+    <polyline-element [latlngs]=lines.shapes [Options]="{color:'#000', weight:7,opacity:0.4}"></polyline-element>
+    <polyline-element [latlngs]=lines.shapes [Options]="{color:lines.color, weight:5,opacity:0.4}"></polyline-element>
+  </leaflet-group>
+  <leaflet-group *ngFor="let routes of data; let ind = index;">
+    <leaflet-group *ngFor="let trip of routes.trips; let ind1 = index;">
+      <marker-element [lat]=trip.currentlocation.lat [lon]=trip.currentlocation.lon [mouseover]=trip.displaycontent [index]=ind+ind1
+        [iconUrl]="'assets/icons/Bus-48.png'">
+      </marker-element>
+    </leaflet-group>
+  </leaflet-group>
+</leaf-element>
+      <markerComponent [tripDetails]=trip [index]=ind+ind1>
+      </markerComponent>
+ -->
+<leaf-element [lat]="lat" [lon]="lng" [zoom]=12 [maxZoom]=12 [layerControl]=true>
+  <layer-element [slippyLayer]="'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'"></layer-element>
+  <leaflet-group *ngFor="let lines of allShapes; let ind = index;">
+    <polyline-element [latlngs]=lines.shapes [Options]="{color:'#000', weight:7,opacity:0.4}"></polyline-element>
+    <polyline-element [latlngs]=lines.shapes [Options]="{color:lines.color, weight:5,opacity:0.4}"></polyline-element>
+  </leaflet-group>
+  <markerComponent *ngFor="let trip of currentLocations; let ind1 = index;" [tripDetails]=trip [index]=ind+ind1>
+  </markerComponent>
+
+</leaf-element>
